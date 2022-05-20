@@ -1,58 +1,80 @@
 class TracksController < ApplicationController
   def focus
+    track_1_data = Base64.encode64(File.read("#{Rails.root}/app/assets/focus/aspen_migration.mp3"))
+    track_2_data = Base64.encode64(File.read("#{Rails.root}/app/assets/focus/cyan.mp3"))
+    track_3_data = Base64.encode64(File.read("#{Rails.root}/app/assets/focus/treasure_map.mp3"))
     response = {
       :message => "Successful focus response!",
       :mental_state => "focus",
       :tracks => [
         {
-          :filename => "Focus Track 1"
+          :filename => "aspen_migration.mp3",
+          :data => track_1_data
         },
         {
-          :filename => "Focus Track 2"
+          :filename => "cyan.mp3",
+          :data => track_2_data
         },
         {
-          :filename => "Focus Track 3"
+          :filename => "treasure_map.mp3",
+          :data => track_3_data
         }
-      ]
+      ],
+      :status => 200
     }
-    render json: response
+    render :json => response
   end
 
   def relax
+    track_1_data = Base64.encode64(File.read("#{Rails.root}/app/assets/relax/bathed_in_neon.mp3"))
+    track_2_data = Base64.encode64(File.read("#{Rails.root}/app/assets/relax/low_tide.mp3"))
+    track_3_data = Base64.encode64(File.read("#{Rails.root}/app/assets/relax/vapor.mp3"))
     response = {
       :message => "Successful response!",
       :mental_state => "relax",
       :tracks => [
         {
-          :filename => "Relax Track 1"
+          :filename => "bathed_in_neon.mp3",
+          :data => track_1_data
         },
         {
-          :filename => "Relax Track 2"
+          :filename => "low_tide.mp3",
+          :data => track_2_data
         },
         {
-          :filename => "Relax Track 3"
+          :filename => "vapor.mp3",
+          :data => track_3_data
         }
-      ]
+      ],
+      :status => 200
     }
-    render json: response
+    render :json => response
   end
 
   def sleep
+    track_1_data = Base64.encode64(File.read("#{Rails.root}/app/assets/sleep/dark_moon.mp3"))
+    track_2_data = Base64.encode64(File.read("#{Rails.root}/app/assets/sleep/lunaris.mp3"))
+    track_3_data = Base64.encode64(File.read("#{Rails.root}/app/assets/sleep/moonflower.mp3"))
+
     response = {
       :message => "Successful response!",
       :mental_state => "sleep",
       :tracks => [
         {
-          :filename => "Sleep Track 1",
+          :filename => "dark_moon.mp3",
+          :data => track_1_data
         },
         {
-          :filename => "Sleep Track 2",
+          :filename => "lunaris.mp3",
+          :data => track_2_data
         },
         {
-          :filename => "Sleep Track 3"
+          :filename => "moonflower.mp3",
+          :data => track_3_data
         }
-      ]
+      ],
+      :status => 200
     }
-    render json: response
+    render :json => response
   end
 end
