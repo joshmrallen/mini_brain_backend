@@ -15,7 +15,7 @@ class TracksController < ApplicationController
   private
 
   def track_params
-    params.require(:id).to_i
+    params.require(:id).to_i - 1
   end
 
   def stream_it
